@@ -1,0 +1,77 @@
+include "binds.kdl"
+include "environment.kdl"
+include "outputs.kdl"
+include "rules.kdl"
+
+// Miscellaneous
+prefer-no-csd
+screenshot-path "~/Pictures/grim/%Y-%m-%d %H-%M-%S.png"
+hotkey-overlay {
+	skip-at-startup
+}
+
+// Polkit GUI
+spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
+
+
+// Notifications
+spawn-at-startup "swaync" 
+
+// Core spawns & globals
+spawn-at-startup "xwayland-satellite"
+
+// Wallpaper
+spawn-at-startup "awww-daemon"
+layer-rule {
+	match namespace="^awww-daemon$"
+	place-within-backdrop true
+}
+
+cursor {
+    xcursor-theme "Breeze_Light"
+    xcursor-size 30
+}
+
+environment {
+	DISPLAY ":0"
+}
+
+// Input 
+input {
+	keyboard {
+		xkb {
+			layout "us,fr"
+		}
+	}
+	touchpad {
+		tap
+		natural-scroll
+		accel-speed 0.2
+		accel-profile "adaptive"
+		scroll-method "two-finger"
+	}
+	mouse {
+		accel-profile "flat"
+	}
+	tablet {
+		map-to-output "HDMI-A-1"
+	}
+}
+
+layout {
+	gaps 15
+	background-color "transparent"
+	focus-ring{
+		width 2
+		active-color "#555"
+	}
+	border{
+		off
+	}
+}
+layer-rule {
+	match namespace="^quickshell$"
+	place-within-backdrop true
+}
+
+

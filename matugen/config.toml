@@ -1,0 +1,7 @@
+[config]
+[templates.alacritty]
+input_path = '~/.config/matugen/templates/alacritty.toml'
+output_path = '~/.config/alacritty/colors.toml'
+[templates.wofi]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/wofi/colors.css'

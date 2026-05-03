@@ -1,0 +1,13 @@
+[config]
+show=drun
+prompt=Search
+width=600
+height=600
+columns=1
+allow_images=true
+image_size=42
+term=alacritty
+insensitive=true
+print_command=true
+hide_scroll=true
+no_actions=true

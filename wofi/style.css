@@ -1,0 +1,55 @@
+@import url("/home/ajani/.config/wofi/colors.css");
+
+
+/* ===== Global ===== */
+* {
+    all: unset;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 18px;
+    color: @on_surface;
+}
+
+/* ===== Window ===== */
+window {
+    padding: 20px;
+    background: @background;
+}
+
+/* ===== Layout ===== */
+#inner-box {
+    padding: 6px;
+}
+
+/* ===== Input ===== */
+#input {
+    margin-bottom: 10px;
+    padding: 10px 12px;
+    color: @on_surface_variant;
+    background: @surface_container;
+    border-radius: 8px;
+}
+
+#input image {
+    margin-right: 10px;
+}
+
+#input:focus {
+    color: @on_surface;
+}
+
+/* ===== Entries ===== */
+#entry {
+    padding: 6px 8px;
+    border-radius: 6px;
+}
+
+/* ===== Selected Entry ===== */
+#entry:selected {
+    background: @surface_container_high;
+    color: @on_surface;
+}
+
+/* ===== Text ===== */
+#text {
+    margin-left: 20px;
+}
