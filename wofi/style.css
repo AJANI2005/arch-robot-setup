@@ -6,7 +6,6 @@
     all: unset;
     font-family: "JetBrainsMono Nerd Font", monospace;
     font-size: 18px;
-    color: @on_surface;
 }
 
 /* ===== Window ===== */

@@ -1,0 +1,20 @@
+{
+	"group/systemtray": {
+		"orientation": "horizontal",
+		"modules": [
+      "custom/tray-icon",
+      "tray"
+		],
+		"drawer": {
+			// "transition-duration":
+			"transition-left-to-right": true
+			// "children-class":
+			// "click-to-reveal":
+		}
+	},
+  "custom/tray-icon": {
+    "format": "󰅂",
+    "tooltip": false
+  }
+
+}

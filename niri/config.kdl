@@ -13,10 +13,6 @@ hotkey-overlay {
 // Polkit GUI
 spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
 
-
-// Notifications
-spawn-at-startup "swaync" 
-
 // Core spawns & globals
 spawn-at-startup "xwayland-satellite"
 
@@ -27,9 +23,12 @@ layer-rule {
 	place-within-backdrop true
 }
 
+// Bar
+spawn-at-startup "waybar" 
+
 cursor {
     xcursor-theme "Breeze_Light"
-    xcursor-size 30
+    xcursor-size 28
 }
 
 environment {
@@ -59,7 +58,7 @@ input {
 }
 
 layout {
-	gaps 15
+	gaps 5
 	background-color "transparent"
 	focus-ring{
 		width 2

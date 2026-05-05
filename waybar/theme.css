@@ -1,0 +1,37 @@
+@import "colors.css";
+
+/*
+	br - border
+	bg - background
+	fg - foreground
+*/
+
+/* Main colors */
+
+@define-color accent         @primary;
+@define-color main-br        @on_surface_variant;
+@define-color main-bg        @surface_container_lowest;
+@define-color main-fg        @on_surface;
+@define-color hover-bg       @surface_container_low;
+@define-color hover-fg       alpha(@on_surface, 0.75);
+@define-color outline        alpha(@outline, 0.5);
+
+/* Module colors */
+
+@define-color workspaces     @surface_container;
+@define-color temperature    @surface_container;
+@define-color memory         @surface_container_low;
+@define-color cpu            @surface_container_high;
+@define-color time           @surface_container_high;
+@define-color date           @surface_container_low;
+@define-color tray           @surface_container;
+@define-color volume         @surface_container;
+@define-color backlight      @surface_container_low;
+@define-color battery        @surface_container;
+@define-color power    @surface_container;
+
+/* State colors */
+
+@define-color warning        @yellow;
+@define-color critical       @error;
+@define-color charging       @primary;

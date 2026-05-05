@@ -49,8 +49,6 @@ vim.keymap.set("n", "<leader>fi", function() fzf.lsp_implementations() end, { de
 
 
 -- MINI
-vim.cmd.colorscheme("miniautumn") ---Theme
-
 require("mini.pairs").setup({})
 require("mini.icons").setup({})
 

@@ -1,4 +1,32 @@
 -- Options
+
+local function set_transparent() -- set UI component to transparent
+	local groups = {
+		"Normal",
+		"NormalNC",
+		"EndOfBuffer",
+		"NormalFloat",
+		"FloatBorder",
+		"SignColumn",
+		"StatusLine",
+		"StatusLineNC",
+		"TabLine",
+		"TabLineFill",
+		"TabLineSel",
+		"ColorColumn",
+	}
+	for _, g in ipairs(groups) do
+		vim.api.nvim_set_hl(0, g, { bg = "none" })
+	end
+	vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none", fg = "#767676" })
+end
+
+set_transparent()
+
+vim.cmd("colorscheme default")
+
+
+vim.opt.termguicolors = true
 vim.opt.number = true -- line number
 vim.opt.relativenumber = true -- relative line numbers
 vim.opt.cursorline = true -- highlight current line
@@ -26,7 +54,7 @@ vim.opt.showmode = false -- do not show the mode, instead have it in statusline
 vim.opt.pumheight = 10 -- popup menu height
 vim.opt.pumblend = 10 -- popup menu transparency
 vim.opt.winblend = 0 -- floating window transparency
-vim.opt.conceallevel = 2 -- obsidian requirement
+vim.opt.conceallevel = 0 -- obsidian requirement
 vim.opt.concealcursor = "" -- do not hide cursorline in markup
 vim.opt.lazyredraw = true -- do not redraw during macros
 vim.opt.synmaxcol = 300 -- syntax highlighting limit

@@ -5,3 +5,9 @@ output_path = '~/.config/alacritty/colors.toml'
 [templates.wofi]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/wofi/colors.css'
+[templates.waybar]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/waybar/colors.css'
+[templates.dunst]
+input_path = '~/.config/matugen/templates/dunstrc-colors.conf'
+output_path = '~/.config/dunst/dunstrc.d/00-colors.conf'

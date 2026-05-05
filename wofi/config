@@ -1,6 +1,6 @@
 [config]
 show=drun
-prompt=Search
+prompt=
 width=600
 height=600
 columns=1

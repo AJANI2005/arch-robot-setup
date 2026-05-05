@@ -1,0 +1,217 @@
+/*----------------
+    Workspaces
+----------------*/
+
+#custom-left_div.1,
+#custom-right_div.1 {
+	color: @workspaces;
+}
+#workspaces {
+	padding: 0 1px;
+	background-color: @workspaces;
+}
+#workspaces button.active label,
+#workspaces button.focused label {
+	color: @accent;
+}
+
+/*------------------
+    Window title
+------------------*/
+
+#window {
+	margin: 0 12px;
+}
+
+
+
+/*---------------
+    Indicator
+---------------*/
+
+#keyboard-state label,
+#language {
+	margin-right: 12px;
+	color: @hover-fg;
+}
+
+/*-----------------
+    Temperature
+-----------------*/
+
+#custom-left_div.2 {
+	color: @temperature;
+}
+#temperature {
+	background-color: @temperature;
+}
+
+/*------------
+    Memory
+------------*/
+
+#custom-left_div.3 {
+	background-color: @temperature;
+	color: @memory;
+}
+#memory {
+	background-color: @memory;
+}
+
+/*---------
+    CPU
+---------*/
+
+#custom-left_div.4 {
+	background-color: @memory;
+	color: @cpu;
+}
+#cpu {
+	background-color: @cpu;
+}
+#custom-left_inv.1 {
+	color: @cpu;
+}
+
+/*-----------------
+    Distro icon
+-----------------*/
+
+#custom-left_div.5,
+#custom-right_div.2 {
+	color: @accent;
+}
+#custom-distro {
+	padding: 0 10px 0 5px;
+	background-color: @accent;
+	color: @main-bg;
+}
+
+/*--------------------
+    Idle inhibitor
+--------------------*/
+
+#custom-right_inv.1 {
+	color: @time;
+}
+#idle_inhibitor {
+	background-color: @time;
+}
+
+/*----------
+    Time
+----------*/
+
+#clock.time {
+	padding-right: 6px;
+	background-color: @time;
+}
+#custom-right_div.3 {
+	background-color: @date;
+	color: @time;
+}
+
+/*----------
+    Date
+----------*/
+
+#clock.date {
+	padding-left: 6px;
+	background-color: @date;
+}
+#custom-right_div.4 {
+	background-color: @tray;
+	color: @date;
+}
+
+/*-----------------
+    System tray
+-----------------*/
+
+#network {
+	background-color: @tray;
+	padding: 0 6px 0 4px;
+}
+#bluetooth {
+	background-color: @tray;
+	padding: 0 5px;
+}
+#custom-update {
+	background-color: @tray;
+	padding: 0 8px 0 2px;
+}
+#custom-right_div.5 {
+	color: @tray;
+}
+
+
+
+
+/*----------------
+    Media info
+----------------*/
+
+#mpris {
+	padding: 0 12px;
+}
+
+/*------------
+    Volume
+------------*/
+
+#custom-left_div.6 {
+	color: @volume;
+}
+#pulseaudio,
+#wireplumber {
+	background-color: @volume;
+}
+
+/*----------------
+    Brightness
+----------------*/
+
+#custom-left_div.7 {
+	background-color: @volume;
+	color: @backlight;
+}
+#backlight {
+	background-color: @backlight;
+}
+
+/*-------------
+    Battery
+-------------*/
+
+#custom-left_div.8 {
+	background-color: @backlight;
+	color: @battery;
+}
+#battery {
+	background-color: @battery;
+}
+#custom-left_inv.2 {
+	color: @battery;
+}
+
+/*----------------
+    Power menu
+----------------*/
+
+#custom-power {
+	padding: 0 19px 0 16px;
+	color: @accent;
+	background-color: @power;
+}
+
+
+/* Tray */
+#systemtray{
+  color: @accent;
+  padding: 0 10px;
+  background-color: @tray;
+}
+#custom-tray-icon{
+  font-size: 24px;
+  margin-right: 5px;
+}
