@@ -26,6 +26,9 @@ layer-rule {
 // Bar
 spawn-at-startup "waybar" 
 
+// Power Management
+spawn-at-startup "hypridle"
+
 cursor {
     xcursor-theme "Breeze_Light"
     xcursor-size 28

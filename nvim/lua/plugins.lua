@@ -24,7 +24,38 @@ vim.pack.add({
   "https://github.com/rafamadriz/friendly-snippets",
   "https://github.com/Saghen/blink.cmp",
   "https://github.com/saghen/blink.lib",
+
+  -- Tree Sitter
+  "https://github.com/nvim-treesitter/nvim-treesitter",
+
+  -- Colors
+  "https://github.com/folke/tokyonight.nvim"
 })
+
+-- Colorscheme
+vim.cmd[[colorscheme tokyonight]]
+
+-- Tree Sitter
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function()
+    -- Enable treesitter highlighting and disable regex syntax
+    pcall(vim.treesitter.start)
+    -- Enable treesitter-based indentation
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})
+-- Auto install parsers
+local ensureInstalled = {
+  'lua', 'python', 'typescript',
+  -- ... your parsers
+}
+local alreadyInstalled = require('nvim-treesitter.config').get_installed()
+local parsersToInstall = vim.iter(ensureInstalled)
+  :filter(function(parser)
+    return not vim.tbl_contains(alreadyInstalled, parser)
+  end)
+  :totable()
+require('nvim-treesitter').install(parsersToInstall)
 
 
 -- FZF (GLOBAL)
