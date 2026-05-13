@@ -11,6 +11,10 @@
 .module {
 	margin-bottom: -1px;
 }
+.modules-center{
+  background-color: #111;
+  border-radius: 10px;
+}
 
 #waybar {
 	background-color: rgba(0,0,0,0);
