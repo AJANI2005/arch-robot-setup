@@ -6,17 +6,18 @@ vim.pack.add({
     -- Colorscheme
     gh .. "folke/tokyonight.nvim",
 
-    -- Lsp Configs
+    -- Lsp Support
+    -- * LSP Config (Default Configs)
     gh .. "neovim/nvim-lspconfig",
 
-    -- Lsp Installer
+    -- * Lsp Installer (Autoinstall lsp servers)
     gh .. "mason-org/mason.nvim",
 
-    -- Lsp Snippets
+    -- * Lsp Snippets
     gh .. "L3MON4D3/LuaSnip",
     gh .. "rafamadriz/friendly-snippets",
 
-    -- Lsp Signature
+    -- * Lsp Signature (Live function signature hints)
     gh .. "ray-x/lsp_signature.nvim",
 
     -- Auto pairs and Auto tags
@@ -24,10 +25,19 @@ vim.pack.add({
     gh .. "windwp/nvim-ts-autotag",
 
     -- Fuzzy Finder 
-    gh .. "ibhagwan/fzf-lua"
+    gh .. "ibhagwan/fzf-lua",
+
+    -- Note Taking Support
+    -- * Tree Sitter for markdown parsing
+    gh .. "nvim-treesitter/nvim-treesitter",
+    -- * Markdown Renderer
+    gh .. "MeanderingProgrammer/render-markdown.nvim",
+    -- * Icons
+    gh .. "nvim-tree/nvim-web-devicons",
+    -- * Obsidian integration
+    gh .. "obsidian-nvim/obsidian.nvim"
 
 })
-
 
 -- Settings For Tokyonight
 require("tokyonight").setup({ transparent=true })
@@ -37,18 +47,63 @@ vim.cmd("colorscheme tokyonight")
 require("nvim-autopairs").setup {}
 require("nvim-ts-autotag").setup {}
 
+
+
 -- Settings For FZF
 local fzf = require("fzf-lua")
 fzf.setup {}
 
-local function map(lhs, rhs, description)
+local function nmap(lhs, rhs, description)
     vim.keymap.set("n", lhs, rhs, {desc=description})
 end
+
 -- Keymaps For FZF  
-map("ff",fzf.files,"Find Files")
-map("fb",fzf.buffers,"Find Buffers")
-map("fh",fzf.buffers,"Find History")
-map("fg",fzf.live_grep,"Find Grep")
+nmap("<leader>ff",fzf.files,"Find Files")
+nmap("<leader>fb",fzf.buffers,"Find Buffers")
+nmap("<leader>fh",fzf.buffers,"Find History")
+nmap("<leader>fg",fzf.live_grep,"Find Grep")
+nmap("<leader>fc",function () fzf.files({cwd="~/.config/nvim"}) end,"Find Neovim Config")
+nmap("<leader>fn",function () fzf.files({cwd="~/Documents/Vaults/Personal"}) end,"Find Notes")
+vim.keymap.set({ "n", "v", "i" }, "<C-x><C-f>",
+function() fzf.complete_path() end,
+{ silent = true, desc = "Fuzzy complete path" })
+
+
+
+-- Settings For Obsidian 
+require("obsidian").setup{
+    ui = { enable = false },
+    legacy_commands = false, -- this will be removed in 4.0.0
+    workspaces = {
+        {
+            name = "personal",
+            path = "~/Documents/Vaults/Personal",
+        }
+    },
+    attachments = { folder="_attachments" },
+    templates = { folder="_templates" },
+    note = { template="note" },
+    frontmatter = {
+        func = function (note)
+            local out = { tags = note.tags }
+            if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+                for k, v in pairs(note.metadata) do
+                    out[k] = v
+                end
+            end
+            return out
+        end
+    }
+}
+-- Settings For Treesitter + Obsidian
+require('nvim-treesitter').install { 'markdown' }
+
+-- Keymaps For Obsidian
+nmap("<leader>on",":Obsidian template note<CR>","Insert Obsidian Note Template")
+nmap("<leader>ot",":Obsidian template<CR>","Choose Obsidian Template")
+nmap("<leader>of",":s/\\(\\d\\{4}-\\d\\{2}-\\d\\{2}_\\)// | s/-/ /g<CR>","Obsidian format title")
+vim.keymap.set("v","<leader>oc","c```code\n<C-r>\"```<Esc>", {desc="Obsidian wrap with code block"})
+
 
 -- Settings For LSP 
 require("mason").setup()
@@ -74,13 +129,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end, { desc = '[T]oggle Inlay [H]ints' })
 
         -- -- Keymaps
-        map("gra", fzf.lsp_code_actions, "Code action")
-        map("gri", fzf.lsp_implementations, "Implementation")
-        map("grr", fzf.lsp_references, "References")
-        map("grt", fzf.lsp_typedefs, "Type definition")
-        map("grO", fzf.lsp_document_symbols, "Document symbols")
-        map("gdd",fzf.lsp_document_diagnostics, "Document Diagnostics")
-        map("gdw",fzf.lsp_workspace_diagnostics, "Workspace Diagnostics")
+        nmap("gra", fzf.lsp_code_actions, "Code action")
+        nmap("gri", fzf.lsp_implementations, "Implementation")
+        nmap("grr", fzf.lsp_references, "References")
+        nmap("grt", fzf.lsp_typedefs, "Type definition")
+        nmap("grO", fzf.lsp_document_symbols, "Document symbols")
+        nmap("gdd",fzf.lsp_document_diagnostics, "Document Diagnostics")
+        nmap("gdw",fzf.lsp_workspace_diagnostics, "Workspace Diagnostics")
     end
 })
 -- Load VSCode-like Snippets
