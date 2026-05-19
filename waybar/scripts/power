@@ -33,12 +33,25 @@ main() {
 	local selected
 	selected=$(printf "%s\n" "${list[@]}" | fzf "${options[@]}")
 
+
 	case $selected in
 		Lock)      hyprlock  ;;
 		Shutdown)  systemctl poweroff ;;
 		Reboot)    systemctl reboot ;;
-		Logout)    niri msg action quit ;;
-		Hibernate) systemctl hibernate ;;
+        Logout)
+        case "$XDG_CURRENT_DESKTOP" in
+            niri)
+                niri msg action quit
+                ;;
+            Hyprland)
+                command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'
+                ;;
+            *)
+                pkill -KILL -u "$USER"
+                ;;
+        esac
+        ;;
+        Hibernate) systemctl hibernate ;;
 		Suspend)   systemctl suspend ;;
 		*)         return 1 ;;
 	esac

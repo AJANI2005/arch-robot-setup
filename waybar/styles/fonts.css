@@ -13,16 +13,10 @@ tooltip label {
 #workspaces button.active label,
 #workspaces button.focused label,
 #custom-distro {
-	font-size: 20px;
+	font-size: 18px;
 }
 
 #custom-power {
 	font-size: 18px;
 }
 
-#custom-left_div,
-#custom-left_inv,
-#custom-right_div,
-#custom-right_inv {
-	font-size: 22px;
-}

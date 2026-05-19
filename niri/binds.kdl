@@ -3,8 +3,8 @@ binds {
 	Mod+Return { spawn "alacritty"; }
 	Mod+B { spawn-sh "app.zen_browser.zen"; }
 	Mod+E { spawn "nautilus"; }
-  Mod+Space repeat=false { spawn-sh "wofi --normal-window --show drun"; }
-  Alt+W { spawn-sh "alacritty -e $HOME/Scripts/wallpaper.sh"; }
+    Mod+Space repeat=false { spawn-sh "wofi --normal-window --show drun"; }
+    Alt+W { spawn-sh "alacritty -e $HOME/Scripts/wallpaper.sh"; }
 
 	// Niri Actions
 	Mod+Q { close-window; }
@@ -115,11 +115,14 @@ binds {
 	
 
 	// System Control
+    // Audio & Brightness
+
 	XF86MonBrightnessUp   allow-when-locked=true { spawn-sh "brightnessctl -n5 set +5%" ; }
 	XF86MonBrightnessDown allow-when-locked=true { spawn-sh "brightnessctl -n5 set 5%-" ; }
 	XF86AudioRaiseVolume  allow-when-locked=true { spawn-sh "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 0.05+"; }
 	XF86AudioLowerVolume  allow-when-locked=true { spawn-sh "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 0.05-"; }
 	XF86AudioMute         allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+
 	XF86AudioPlay         allow-when-locked=true { spawn-sh "playerctl play-pause"; }
 	XF86AudioPause        allow-when-locked=true { spawn-sh "playerctl pause"; }
 	XF86AudioNext         allow-when-locked=true { spawn-sh "playerctl next"; }

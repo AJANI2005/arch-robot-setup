@@ -11,22 +11,27 @@
 	    Layout
 	------------*/
 
-	"modules-left": [],
+    "modules-left": [
+        "hyprland/workspaces",
+        "niri/workspaces"
+    ],
 	"modules-center": [
+		"custom/distro"
+	],
+	 "modules-right": [
 		"idle_inhibitor",
 		"custom/update",
-    "group/systemtray",
-		"group/pulseaudio",
-		"backlight",
-		"custom/distro",
-		"clock#time",
-		"clock#date",
 		"network",
 		"bluetooth",
-    "battery",
-    "custom/power"
-	],
-	"modules-right": [],
+        "battery",
+        "custom/power",
+        "temperature",
+        "cpu",
+        "memory",
+		"group/pulseaudio",
+		"backlight",
+		"clock#time"
+     ],
 
 	/*-------------
 	    Options
@@ -37,7 +42,7 @@
 	// "expand-right":
 	"layer": "top",
 	// "output":
-	"position": "bottom",
+	"position": "top",
 	"height": 0,
 	"width": 0,
 	"margin": 0,

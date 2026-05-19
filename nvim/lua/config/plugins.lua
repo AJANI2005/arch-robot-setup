@@ -7,18 +7,20 @@ vim.pack.add({
     gh .. "folke/tokyonight.nvim",
 
     -- Lsp Support
-    -- * LSP Config (Default Configs)
+    -- LSP Config (Default Configs)
     gh .. "neovim/nvim-lspconfig",
 
-    -- * Lsp Installer (Autoinstall lsp servers)
+    -- Lsp Installer (Autoinstall lsp servers)
     gh .. "mason-org/mason.nvim",
 
-    -- * Lsp Snippets
+    -- Lsp Snippets
     gh .. "L3MON4D3/LuaSnip",
     gh .. "rafamadriz/friendly-snippets",
 
-    -- * Lsp Signature (Live function signature hints)
+    -- Lsp Signature (Live function signature hints)
     gh .. "ray-x/lsp_signature.nvim",
+    --  Autocomplete
+    { src=gh .. "saghen/blink.cmp",  version=vim.version.range("^1") },
 
     -- Auto pairs and Auto tags
     gh .. "windwp/nvim-autopairs",
@@ -64,10 +66,9 @@ nmap("<leader>fh",fzf.buffers,"Find History")
 nmap("<leader>fg",fzf.live_grep,"Find Grep")
 nmap("<leader>fc",function () fzf.files({cwd="~/.config/nvim"}) end,"Find Neovim Config")
 nmap("<leader>fn",function () fzf.files({cwd="~/Documents/Vaults/Personal"}) end,"Find Notes")
-vim.keymap.set({ "n", "v", "i" }, "<C-x><C-f>",
+vim.keymap.set({ "n", "v" }, "<leader>fp",
 function() fzf.complete_path() end,
 { silent = true, desc = "Fuzzy complete path" })
-
 
 
 -- Settings For Obsidian 
@@ -140,4 +141,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 -- Load VSCode-like Snippets
 require("luasnip.loaders.from_vscode").lazy_load()
+-- Settings For Blink.cmp 
+require("blink.cmp").setup({})
 
+
+ 
+  

@@ -24,11 +24,17 @@ layer-rule {
 }
 
 // Bar
-spawn-at-startup "waybar" 
+//spawn-at-startup "waybar" 
 
 // Power Management
 spawn-at-startup "hypridle"
 
+// Bluelight filter 
+spawn-at-startup "gammastep"
+
+// Noctalia Shell
+spawn-at-startup "qs -c noctalia-shell"
+ 
 cursor {
     xcursor-theme "Breeze_Light"
     xcursor-size 28
@@ -75,5 +81,4 @@ layer-rule {
 	match namespace="^quickshell$"
 	place-within-backdrop true
 }
-
 

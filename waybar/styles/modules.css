@@ -1,7 +1,4 @@
 #workspaces,
-#temperature,
-#memory,
-#cpu,
 #custom-distro,
 #idle_inhibitor,
 #clock.time,
@@ -9,9 +6,7 @@
 #network,
 #bluetooth,
 #custom-update,
-#pulseaudio,
 #wireplumber,
-#backlight,
 #battery,
 #custom-power,
 #systemtray,
@@ -19,7 +14,7 @@
 #window,
 #keyboard-state label,
 #language {
-	margin: 0 8px;
+	margin: 0 6px;
 }
 
 #workspaces {
@@ -58,8 +53,7 @@
 	font-size: 24px;
 }
 #battery, #custom-power{
-margin-right: 10px;
-
+    margin-right: 10px;
 }
 
 #mpris {

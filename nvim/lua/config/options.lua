@@ -6,7 +6,7 @@ vim.g.maplocalleader="\\"  -- <localleader>
 
 vim.opt.termguicolors=true
 
-vim.opt.autocomplete=true -- Show Completion Menu as I type
+vim.opt.autocomplete=false -- Show Completion Menu as I type
 vim.opt.autocompletetimeout=80
 
 vim.opt.complete=".,o"
@@ -22,7 +22,7 @@ vim.opt.smartindent=true
 
 vim.opt.relativenumber=true -- Line numbers
 
-vim.opt.splitbelow=true 
+vim.opt.splitbelow=true
 vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.backup = false
